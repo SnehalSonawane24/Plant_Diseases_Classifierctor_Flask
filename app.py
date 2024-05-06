@@ -1,5 +1,6 @@
 from flask import Flask, render_template, jsonify, request
-from jinja2 import Markup
+from markupsafe import Markup
+# from jinja2 import Markup
 from model import predict_image
 import utils
 
@@ -25,6 +26,3 @@ def predict():
             pass
     return render_template('index.html', status=500, res="Internal Server Error")
 
-
-if __name__ == "__main__":
-    app.run(debug=True)
